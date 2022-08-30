@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.Block
@@ -7,8 +5,10 @@ namespace Core.Block
     public class CreateBlock : MonoBehaviour
     {
         [SerializeField] private GameObject prefabBlock;
-        [SerializeField] private int maxBlock;
-        [SerializeField] private float jumpBlock;
+        [SerializeField] private int maxColum;
+        [SerializeField] private int maxLine;
+        private float jumpColum;
+        private float jumpLine;
 
         // Start is called before the first frame update
         void Start()
@@ -18,12 +18,17 @@ namespace Core.Block
 
         void GenerateBlocks()
         {
-            for (int i = 0; i < maxBlock; i++)
+            for (int l = 0; l < maxLine; l++)
             {
-                GameObject obj = Instantiate(prefabBlock, transform.position, Quaternion.identity);
-                obj.transform.SetParent(gameObject.transform);
-                obj.transform.position = new Vector3(transform.position.x + jumpBlock, transform.position.y, transform.position.z);
-                jumpBlock += 1f;
+                for (int c = 0; c < maxColum; c++)
+                {
+                    GameObject obj = Instantiate(prefabBlock, transform.position, Quaternion.identity);
+                    obj.transform.SetParent(gameObject.transform);
+                    obj.transform.position = new Vector3(transform.position.x + jumpColum, transform.position.y + jumpLine, transform.position.z);
+                    jumpColum += 1f;
+                }
+                jumpLine -= 0.3f;
+                jumpColum = 0;
             }
         }
     }

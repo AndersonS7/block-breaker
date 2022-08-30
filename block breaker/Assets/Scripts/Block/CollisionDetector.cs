@@ -8,7 +8,7 @@ namespace Core.Block
         {
             if (other.collider.CompareTag("Ball"))
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 0.25f);
                 Core.Controller.GameController.instance.AddScore();
             }
         }
