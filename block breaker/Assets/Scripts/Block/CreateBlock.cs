@@ -4,11 +4,14 @@ namespace Core.Block
 {
     public class CreateBlock : MonoBehaviour
     {
-        [SerializeField] private GameObject prefabBlock;
+        [SerializeField] private GameObject[] prefabBlock;
         [SerializeField] private int maxColum;
         [SerializeField] private int maxLine;
         private float jumpColum;
         private float jumpLine;
+
+        //CONTROLLERS ----
+        private int indexBlock; //controla qual bloco vai ser usado.
 
         // Start is called before the first frame update
         void Start()
@@ -22,13 +25,15 @@ namespace Core.Block
             {
                 for (int c = 0; c < maxColum; c++)
                 {
-                    GameObject obj = Instantiate(prefabBlock, transform.position, Quaternion.identity);
+                    GameObject obj = Instantiate(prefabBlock[indexBlock], transform.position, Quaternion.identity);
                     obj.transform.SetParent(gameObject.transform);
                     obj.transform.position = new Vector3(transform.position.x + jumpColum, transform.position.y + jumpLine, transform.position.z);
                     jumpColum += 1f;
                 }
                 jumpLine -= 0.3f;
                 jumpColum = 0;
+
+                indexBlock = indexBlock == 0 ? indexBlock = 1 : indexBlock = 0;
             }
         }
     }

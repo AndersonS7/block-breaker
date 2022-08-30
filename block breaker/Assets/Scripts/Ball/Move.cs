@@ -12,20 +12,20 @@ namespace Core.Ball
         void Start()
         {
             direction.Normalize();
-            rig.AddForce(direction.normalized * speed * Time.deltaTime, ForceMode2D.Impulse);
+            //rig.AddForce(direction.normalized * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
 
-        // void Update()
-        // {
-        //     transform.position += direction * speed * Time.deltaTime;
-        // }
+        void Update()
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
 
-        // private void OnCollisionEnter2D(Collision2D other)
-        // {
-        //         Vector3 normal = other.contacts[0].normal;
-        //         direction = Vector3.Reflect(direction, normal);
-        //         direction.Normalize();
-        // }
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            Vector3 normal = other.contacts[0].normal;
+            direction = Vector3.Reflect(direction, normal);
+            direction.Normalize();
+        }
     }
 }
 
