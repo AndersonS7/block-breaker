@@ -9,11 +9,8 @@ namespace Core.Block
         [SerializeField] private int maxLine;
         private float jumpColum;
         private float jumpLine;
-
-        //CONTROLLERS ----
         private int indexBlock; //controla qual bloco vai ser usado.
 
-        // Start is called before the first frame update
         void Start()
         {
             GenerateBlocks();
