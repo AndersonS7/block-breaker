@@ -34,7 +34,9 @@ namespace Core.Controller
         {
             maxLife--;
             ShowHeart();
-            StartCoroutine(RestartBall());
+            //StartCoroutine(RestartBall());
+            ball.transform.position = startPosBall;
+            platform.transform.position = startPosPlatform;
 
             //gameover -> mostrar tela com pontuação e opção de reinicar ou sair do jogo
             if (maxLife <= 0)
