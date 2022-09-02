@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXController : MonoBehaviour
+namespace Core.Ball
 {
-    [SerializeField] private AudioSource audioS;
-    [SerializeField] private AudioClip sfxCollision;
-
-    private void OnCollisionEnter2D(Collision2D other)
+    public class SFXController : MonoBehaviour
     {
-        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Block"))
+        [SerializeField] private AudioSource audioS;
+        [SerializeField] private AudioClip sfxCollision;
+
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            audioS.PlayOneShot(sfxCollision);
+            if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Block"))
+            {
+                audioS.PlayOneShot(sfxCollision);
+            }
         }
     }
 }

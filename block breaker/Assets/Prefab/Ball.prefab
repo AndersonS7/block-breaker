@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8722147433069280495}
   - component: {fileID: 8722147433069280492}
-  - component: {fileID: 8722147433069280493}
   - component: {fileID: 8722147433069280530}
   - component: {fileID: 2854385972970790578}
   - component: {fileID: 4859110267998212698}
   - component: {fileID: 8722147433069280531}
   - component: {fileID: 4868281703124183383}
+  - component: {fileID: 3195982162443380498}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8722147433069280493
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8722147433069280528}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &8722147433069280530
 Rigidbody2D:
   serializedVersion: 4
@@ -275,3 +259,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioS: {fileID: 2854385972970790578}
   sfxCollision: {fileID: 8300000, guid: b966d9618338ae44d8b51c328ec15b9b, type: 3}
+--- !u!114 &3195982162443380498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722147433069280528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1e2f500caea194897cdd8823df4cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 3
+  platform: {fileID: 0}
+  posBall: {x: 0, y: 0, z: 0}
+  posPlatform: {x: 0, y: 0, z: 0}
