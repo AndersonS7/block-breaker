@@ -11,11 +11,6 @@ namespace Core.Ball
 
         public bool GameOver { get => gameOver; }
 
-        [Header("RESTART POS")]
-        [SerializeField] private GameObject platform;
-        [SerializeField] private Vector3 posBall;
-        [SerializeField] private Vector3 posPlatform;
-
         private void Start()
         {
             currentLife = maxLife;
@@ -25,7 +20,7 @@ namespace Core.Ball
         {
             currentLife--;
             Controller.UIController.instance.ShowHeart(currentLife);
-            Debug.Log(currentLife);
+            Controller.GameController.instance.IRestartPos();
 
             if (currentLife <= 0)
             {

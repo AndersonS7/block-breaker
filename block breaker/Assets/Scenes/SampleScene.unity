@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 8722147433069280528, guid: 46afaaa148ad6e4448ca49d1eac8c30e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46afaaa148ad6e4448ca49d1eac8c30e, type: 3}
 --- !u!1 &214143338
@@ -387,6 +391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTXT: {fileID: 1902482408}
+  ball: {fileID: 1205588004}
+  platform: {fileID: 1404127573}
+  posBall: {x: 0, y: -3, z: 0}
+  posPlatform: {x: 0, y: -3.5, z: 0}
 --- !u!4 &459971568
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,6 +1950,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 81209676264747961, guid: a4d6f9f32fd67ce4e8f0c178ae098aea, type: 3}
   m_PrefabInstance: {fileID: 882886932}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1205588004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8722147433069280528, guid: 46afaaa148ad6e4448ca49d1eac8c30e, type: 3}
+  m_PrefabInstance: {fileID: 52862314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1404127573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1139230030573580356, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
+  m_PrefabInstance: {fileID: 2097997939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1638090978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2532,10 @@ PrefabInstance:
     - target: {fileID: 1139230030573580356, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139230030573580356, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}

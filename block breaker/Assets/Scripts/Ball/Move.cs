@@ -8,10 +8,13 @@ namespace Core.Ball
         [SerializeField] private float speed;
 
         private Vector3 direction = new Vector3(1, 1, 0);
+        
+        private void OnEnable()
+        {
+            ToMove();
+        }
 
-
-        // Start is called before the first frame update
-        void Start()
+        private void ToMove()
         {
             direction.Normalize();
             rig.AddForce(direction.normalized * speed * Time.deltaTime, ForceMode2D.Impulse);
