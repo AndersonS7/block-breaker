@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8722147433069280531, guid: 46afaaa148ad6e4448ca49d1eac8c30e, type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46afaaa148ad6e4448ca49d1eac8c30e, type: 3}
 --- !u!1 &214143338
@@ -371,6 +375,7 @@ GameObject:
   - component: {fileID: 459971568}
   - component: {fileID: 459971567}
   - component: {fileID: 459971569}
+  - component: {fileID: 459971570}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -426,6 +431,24 @@ MonoBehaviour:
   - {fileID: 1965161605}
   - {fileID: 342373512}
   - {fileID: 547328094}
+--- !u!114 &459971570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459971566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490a522a318aad9488e3a69a64339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUps:
+  - {fileID: 2417951021513258671, guid: fadf102a088be9c4b8046c6d126adbfb, type: 3}
+  - {fileID: 2417951021513258671, guid: 3c623e2f04f6ea247adc2c1b6eaf4f03, type: 3}
+  - {fileID: 2417951021513258671, guid: e9a886e373f2de644be0987ac155bd53, type: 3}
+  maxX: 4
+  minX: -4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,6 +2508,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1139230030573580352, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
+      propertyPath: boxSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139230030573580352, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
+      propertyPath: boxSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139230030573580352, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
+      propertyPath: layer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 1139230030573580354, guid: 33959f62143685a44be6a6d0cc7632e1, type: 3}
       propertyPath: m_RootOrder
       value: 1
