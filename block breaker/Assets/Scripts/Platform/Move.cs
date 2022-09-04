@@ -14,11 +14,13 @@ namespace Core.Platform
 
         void ToMove()
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)
+            && transform.position.x > -4.96f)
             {
                 transform.Translate(Vector3.left * speed * Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)
+            && transform.position.x < 4.96f)
             {
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
             }
