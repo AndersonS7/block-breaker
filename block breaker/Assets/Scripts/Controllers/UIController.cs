@@ -7,7 +7,11 @@ namespace Core.Controller
         [SerializeField] private int maxHeart;
         [SerializeField] private GameObject[] heart;
 
+        private int currentHeart;
+
         public static UIController instance;
+
+        public int CurrentHeart { get => currentHeart; set => currentHeart = value; }
 
         void Awake()
         {

@@ -9,7 +9,7 @@ namespace Core.Controller
         [SerializeField] private int maxX;
         [SerializeField] private int minX;
 
-        private bool create;
+        private bool create = true;
 
         private GameObject currentPowerUp;
         public GameObject CurrentPowerUp { get => currentPowerUp; set => currentPowerUp = value; }
@@ -21,11 +21,17 @@ namespace Core.Controller
             instance = this;
         }
 
+        void Start()
+        {
+            StartCoroutine(Call());
+        }
+
         void Update()
         {
             if (!create)
             {
-                CurrentPowerUp = Instantiate(powerUps[Random.Range(0, powerUps.Length)], new Vector2(Random.Range(minX, maxX), 4), Quaternion.identity);
+                //Random.Range(0, powerUps.Length)
+                CurrentPowerUp = Instantiate(powerUps[0], new Vector2(Random.Range(minX, maxX), 4), Quaternion.identity);
                 create = true;
                 StartCoroutine(Call());
             }

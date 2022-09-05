@@ -7,16 +7,19 @@ namespace Core.Controller
     public class GameController : MonoBehaviour
     {
         [SerializeField] private Text scoreTXT;
-
-        [Header("TESTE----")]
-        public GameObject ball;
-        public GameObject platform;
-        
         [SerializeField] private Vector3 posBall;
         [SerializeField] private Vector3 posPlatform;
 
+        public GameObject ball;
+        public GameObject platform;
+
+        private GameObject currentBall;
+        private GameObject currentPlatform;
+
         private int scoreNumber;
         public static GameController instance;
+
+        private bool create;
 
         // Start is called before the first frame update
         void Awake()
@@ -58,22 +61,26 @@ namespace Core.Controller
             }
         }
 
-        public void IRestartPos()
+        public void IRestartPos(bool res)
         {
-            ball.gameObject.SetActive(false);
-            platform.gameObject.SetActive(false);
-            
-            ball.gameObject.transform.position = posBall;
-            platform.gameObject.transform.position = posPlatform;
+            create = res;
+            Destroy(currentBall);
+            Destroy(currentPlatform);
 
-            StartCoroutine(RestartPos());
+            if (create)
+            {
+                StartCoroutine(RestartPos());
+            }
         }
 
         IEnumerator RestartPos()
         {
             yield return new WaitForSeconds(1);
-            ball.gameObject.SetActive(true);
-            platform.gameObject.SetActive(true);
+
+            create = false;
+            currentBall = Instantiate(ball, posBall, Quaternion.identity);
+            currentPlatform = Instantiate(platform, posPlatform, Quaternion.identity);
+
         }
     }
 }

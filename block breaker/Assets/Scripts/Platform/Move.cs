@@ -7,17 +7,19 @@ namespace Core.Platform
     {
         [SerializeField] private float speed;
 
-        [Header("COLLIDER")]
-        [SerializeField] private LayerMask layer;
-        [SerializeField] private Vector2 boxSize;
-
         private float saveSpeed;
-        private Vector3 saveSize;
 
-        void Start()
+        [Header("BIG PLATFORM CONFIG")]
+        [SerializeField] private Color colorAlpha;
+        [SerializeField] private Color color;
+        private GameObject bigPlatform;
+
+        void Awake()
         {
-            saveSize = transform.localScale;
             saveSpeed = speed;
+            bigPlatform = GameObject.FindGameObjectWithTag("BigPlatform");
+            
+            DisabledBigPlatform();
         }
 
         // Update is called once per frame
@@ -29,13 +31,15 @@ namespace Core.Platform
 
         void ToMove()
         {
+            //
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)
-            && transform.position.x > -4.96f)
+            && transform.position.x > -5.94f + transform.localScale.x)
             {
                 transform.Translate(Vector3.left * speed * Time.deltaTime);
             }
+
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)
-            && transform.position.x < 4.96f)
+            && transform.position.x < 5.94f - transform.localScale.x)
             {
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
             }
@@ -51,7 +55,7 @@ namespace Core.Platform
                 {
                     if (powerUp.name == "PowerUp-big" + "(Clone)")
                     {
-                        transform.localScale = new Vector3(transform.localScale.x + 1, transform.localScale.y, transform.localScale.z);
+                        ActiveBigPlatform();
                         Destroy(powerUp.gameObject);
                     }
                     if (powerUp.name == "PowerUp-speed" + "(Clone)")
@@ -72,14 +76,28 @@ namespace Core.Platform
 
         void RestartStates()
         {
-            transform.localScale = saveSize;
+            DisabledBigPlatform();
             speed = saveSpeed;
         }
 
         IEnumerator Call()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(7);
             RestartStates();
         }
+
+        //power up - big platform
+        private void ActiveBigPlatform()
+        {
+            bigPlatform.GetComponent<Collider2D>().enabled = true;
+            bigPlatform.GetComponent<SpriteRenderer>().color = color;
+        }
+
+        private void DisabledBigPlatform()
+        {
+            bigPlatform.GetComponent<Collider2D>().enabled = false;
+            bigPlatform.GetComponent<SpriteRenderer>().color = colorAlpha;
+        }
+
     }
 }

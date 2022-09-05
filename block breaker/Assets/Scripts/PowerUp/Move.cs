@@ -6,7 +6,7 @@ namespace Core.PowerUp
     {
         private void Start()
         {
-            Destroy(gameObject, 12);
+            Destroy(gameObject, 11.5f);
         }
 
         // Update is called once per frame

@@ -5,7 +5,6 @@ namespace Core.Ball
     public class LifeSystem : MonoBehaviour
     {
         [Header("LIFE CONTROL")]
-        [SerializeField] private int maxLife;
         private int currentLife;
         private bool gameOver;
 
@@ -13,14 +12,14 @@ namespace Core.Ball
 
         private void Start()
         {
-            currentLife = maxLife;
+            currentLife = Controller.UIController.instance.CurrentHeart;
         }
 
         private void SubtractLife()
         {
             currentLife--;
             Controller.UIController.instance.ShowHeart(currentLife);
-            Controller.GameController.instance.IRestartPos();
+            Controller.GameController.instance.IRestartPos(true);
 
             if (currentLife <= 0)
             {
