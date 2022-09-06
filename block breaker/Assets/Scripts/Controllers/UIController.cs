@@ -6,12 +6,12 @@ namespace Core.Controller
     {
         [SerializeField] private int maxHeart;
         [SerializeField] private GameObject[] heart;
+        [SerializeField] private GameObject gameOver;
 
         private int currentHeart;
+        public int CurrentHeart { get => currentHeart; set => currentHeart = value; }
 
         public static UIController instance;
-
-        public int CurrentHeart { get => currentHeart; set => currentHeart = value; }
 
         void Awake()
         {
@@ -21,10 +21,26 @@ namespace Core.Controller
         // Start is called before the first frame update
         void Start()
         {
-            ShowHeart(maxHeart);
+            Time.timeScale = 1;
+            currentHeart = maxHeart;
+            ShowHeart();
         }
 
-        public void ShowHeart(int maxHeart)
+        void Update()
+        {
+            ShowGameOver();
+        }
+
+        private void ShowGameOver()
+        {
+            if (CurrentHeart <= 0)
+            {
+                gameOver.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
+        public void ShowHeart()
         {
             //esconde todos os pontos de vida
             for (int i = 0; i < heart.Length; i++)
@@ -33,7 +49,7 @@ namespace Core.Controller
             }
 
             //mostra os pontos de vida atualizado
-            for (int i = 0; i < maxHeart; i++)
+            for (int i = 0; i < CurrentHeart; i++)
             {
                 heart[i].SetActive(true);
             }
