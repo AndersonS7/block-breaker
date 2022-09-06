@@ -31,7 +31,7 @@ namespace Core.Controller
             if (!create)
             {
                 //Random.Range(0, powerUps.Length)
-                CurrentPowerUp = Instantiate(powerUps[0], new Vector2(Random.Range(minX, maxX), 4), Quaternion.identity);
+                CurrentPowerUp = Instantiate(powerUps[Random.Range(0, powerUps.Length)], new Vector2(Random.Range(minX, maxX), 4), Quaternion.identity);
                 create = true;
                 StartCoroutine(Call());
             }
