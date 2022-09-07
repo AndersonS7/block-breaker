@@ -6,8 +6,8 @@ namespace Core.Platform
     public class Move : MonoBehaviour
     {
         [SerializeField] private float speed;
-
         private float saveSpeed;
+        private Vector2 saveSize;
 
         [Header("BIG PLATFORM CONFIG")]
         [SerializeField] private Color colorAlpha;
@@ -17,6 +17,7 @@ namespace Core.Platform
         void Awake()
         {
             saveSpeed = speed;
+            saveSize = transform.localScale;
             bigPlatform = GameObject.FindGameObjectWithTag("BigPlatform");
             
             DisabledBigPlatform();
@@ -78,6 +79,7 @@ namespace Core.Platform
         {
             DisabledBigPlatform();
             speed = saveSpeed;
+            transform.localScale = saveSize;
         }
 
         IEnumerator Call()

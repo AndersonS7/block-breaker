@@ -11,12 +11,40 @@ namespace Core.Block
         private float jumpLine;
         private int indexBlock; //controla qual bloco vai ser usado.
 
-        void Start()
+
+        [Header("MODO DE CRIAÇÃO----")]
+        [Tooltip("cria blocos intercalados (max 2 blocos)")][SerializeField] private bool op1;
+        [Tooltip("cria blocos saltando para o próximo bloco")][SerializeField] private bool op2;
+
+        public static CreateBlock instance;
+
+        public int totalBlocksCreated;
+        public int TotalBlocksCreated { get => totalBlocksCreated; set => totalBlocksCreated = value; }
+
+        void Awake()
         {
-            GenerateBlocks();
+            instance = this;
         }
 
-        void GenerateBlocks()
+        void Start()
+        {
+            if (op1)
+            {
+                GenerateBlocks01(1);
+            }
+            else if (op2)
+            {
+                GenerateBlocks01(2);
+            }
+            else if (!op1 && !op2)
+            {
+                GenerateBlocks01(1);
+            }
+            //----
+            TotalBlocksCreated = maxColum * maxLine;
+        }
+
+        void GenerateBlocks01(int op) // 1 = op1 | 2 = op2
         {
             for (int l = 0; l < maxLine; l++)
             {
@@ -30,7 +58,14 @@ namespace Core.Block
                 jumpLine -= 0.3f; //0.3f
                 jumpColum = 0;
 
-                indexBlock = indexBlock == 0 ? indexBlock = 1 : indexBlock = 0;
+                if (op == 1)
+                {
+                    indexBlock = indexBlock == 0 ? indexBlock = 1 : indexBlock = 0;
+                }
+                if (op == 2 && indexBlock <= prefabBlock.Length)
+                {
+                    indexBlock++;
+                }
             }
         }
     }

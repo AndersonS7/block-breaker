@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 81209676264747961}
   - component: {fileID: 81209676264747960}
-  - component: {fileID: 2733920666317682300}
-  - component: {fileID: 9126961514199456486}
+  - component: {fileID: 4158134822487580767}
+  - component: {fileID: 8565205513378426222}
   m_Layer: 0
-  m_Name: Block_green
+  m_Name: Block_green1
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 8e93922103d69d343a111c51689294fe, type: 3}
-  m_Color: {r: 0.20472588, g: 0.6886792, b: 0.1786668, a: 1}
+  m_Color: {r: 0.1743589, g: 0.4528302, b: 0.16019936, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2733920666317682300
+--- !u!61 &4158134822487580767
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9126961514199456486
+--- !u!114 &8565205513378426222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
