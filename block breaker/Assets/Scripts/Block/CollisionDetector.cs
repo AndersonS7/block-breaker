@@ -1,4 +1,3 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 namespace Core.Block
@@ -25,7 +24,7 @@ namespace Core.Block
                 //pula para a próxima scena
                 if (Core.Block.CreateBlock.instance.TotalBlocksCreated <= 0)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    Core.Controller.NextLvl.instance.ActiveNextLevel();
                 }
 
                 Destroy(gameObject, 0.25f);

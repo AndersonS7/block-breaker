@@ -7,6 +7,7 @@ namespace Core.Controller
         [SerializeField] private int maxHeart;
         [SerializeField] private GameObject[] heart;
         [SerializeField] private GameObject gameOver;
+        [SerializeField] private GameObject waitMenu;
 
         private int currentHeart;
         public int CurrentHeart { get => currentHeart; set => currentHeart = value; }
@@ -29,6 +30,7 @@ namespace Core.Controller
         void Update()
         {
             ShowGameOver();
+            Paused();
         }
 
         private void ShowGameOver()
@@ -36,6 +38,20 @@ namespace Core.Controller
             if (CurrentHeart <= 0)
             {
                 gameOver.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
+        private void Paused()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && waitMenu.activeSelf)
+            {
+                waitMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else if(Input.GetKeyDown(KeyCode.Escape) && !waitMenu.activeSelf)
+            {
+                waitMenu.SetActive(true);
                 Time.timeScale = 0;
             }
         }

@@ -7,6 +7,7 @@ namespace Core.Controller
     public class GameController : MonoBehaviour
     {
         [SerializeField] private Text scoreTXT;
+        [SerializeField] private Text recordScoreTXT;
         [SerializeField] private Vector3 posBall;
         [SerializeField] private Vector3 posPlatform;
 
@@ -17,6 +18,7 @@ namespace Core.Controller
         private GameObject currentPlatform;
 
         private int scoreNumber;
+        private int recordScore;
         public static GameController instance;
 
         private bool create;
@@ -30,7 +32,7 @@ namespace Core.Controller
         private void Start()
         {
             StartCoroutine(RestartPos());
-            LoadScore(scoreTXT);
+            UpdateScoreUI(recordScoreTXT);
         }
 
         public void AddScore()
@@ -43,21 +45,31 @@ namespace Core.Controller
 
         public void SaveScore(int score)
         {
-            SaveSystem.SaveData(score);
+            recordScore = LoadScore();
+            
+            if (scoreNumber > recordScore)
+            {
+                SaveSystem.SaveData(score);
+            }
         }
 
-        public void LoadScore(Text scoreTXT)
+        public void UpdateScoreUI(Text txt)
+        {
+            int score = LoadScore();
+            txt.text = score.ToString();
+        }
+
+        private int LoadScore()
         {
             ScoreData data = SaveSystem.LoadScore();
 
             if (data != null)
             {
-                scoreTXT.text = data.score.ToString();
-                scoreNumber = data.score;
+                return data.score;
             }
             else
             {
-                scoreTXT.text = "0";
+                return 0;
             }
         }
 
