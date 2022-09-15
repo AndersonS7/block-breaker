@@ -5,6 +5,7 @@ namespace Core.Block
     public class CollisionDetector : MonoBehaviour
     {
         [SerializeField] private int maxLife;
+        [SerializeField] private int scoreBlock;
         private int currentLife;
 
         private void Start()
@@ -18,7 +19,7 @@ namespace Core.Block
 
             if (currentLife <= 0)
             {
-                Core.Controller.GameController.instance.AddScore();
+                Core.Controller.GameController.instance.AddScore(scoreBlock);
                 Core.Block.CreateBlock.instance.TotalBlocksCreated--;
 
                 //pula para a próxima scena
@@ -27,7 +28,7 @@ namespace Core.Block
                     Core.Controller.NextLvl.instance.ActiveNextLevel();
                 }
 
-                Destroy(gameObject, 0.25f);
+                Destroy(gameObject);
             }
         }
 
@@ -40,4 +41,3 @@ namespace Core.Block
         }
     }
 }
-

@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 8722147433069280530}
-  speed: 190
+  speed: 185
 --- !u!114 &4868281703124183383
 MonoBehaviour:
   m_ObjectHideFlags: 0

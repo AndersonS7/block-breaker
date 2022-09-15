@@ -35,9 +35,9 @@ namespace Core.Controller
             UpdateScoreUI(recordScoreTXT);
         }
 
-        public void AddScore()
+        public void AddScore(int score)
         {
-            scoreNumber++;
+            scoreNumber += score;
             scoreTXT.text = scoreNumber.ToString();
 
             SaveScore(scoreNumber);

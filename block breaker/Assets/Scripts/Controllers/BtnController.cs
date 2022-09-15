@@ -1,9 +1,9 @@
+using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BtnController : MonoBehaviour
 {
-
     public void Play()
     {
         SceneManager.LoadScene(1);
